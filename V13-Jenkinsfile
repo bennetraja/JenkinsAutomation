@@ -40,16 +40,16 @@ pipeline {
             "pattern": "*.war",
             "target": "bennet-libs-release-local"
           }]
-        }''',
-      )
+          }''',
+        )
+      }
+    }
+    stage('Publish build info') {
+      steps {
+        rtPublishBuildInfo(
+          serverId: "Artifactory"
+        )
+      }
     }
   }
-  stage('Publish build info') {
-    steps {
-      rtPublishBuildInfo(
-        serverId: "Artifactory"
-      )
-    }
-  }
-}
 }
